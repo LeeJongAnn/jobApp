@@ -26,4 +26,13 @@ public class JobController {
 
         return "Job added successfully";
     }
+
+    @GetMapping("/jobs/{id}")
+    public Job getBoyById(@PathVariable Long id) {
+        Job job = jobService.getJobById(id);
+        if (job != null) {
+            return job;
+        }
+        return new Job(1L,"TestJob","TestJob","2000","3000","anywhere");
+    }
 }
