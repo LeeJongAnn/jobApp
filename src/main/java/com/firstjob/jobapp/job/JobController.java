@@ -9,17 +9,30 @@ import java.util.List;
 @RestController
 public class JobController {
 
+    private JobService jobService;
 
-    private List<Job> jobs = new ArrayList<>();
+    public JobController(JobService jobService) {
+        this.jobService = jobService;
+    }
 
     @GetMapping("/jobs")
     public List<Job> findAll() {
-        return jobs;
+        return jobService.findAll();
     }
 
     @PostMapping("/jobs")
     public String createJob(@RequestBody Job job) {
-        jobs.add(job);
+        jobService.createJob(job);
+
         return "Job added successfully";
+    }
+
+    @GetMapping("/jobs/{id}")
+    public Job getBoyById(@PathVariable Long id) {
+        Job job = jobService.getJobById(id);
+        if (job != null) {
+            return job;
+        }
+        return new Job(1L,"TestJob","TestJob","2000","3000","anywhere");
     }
 }
