@@ -3,6 +3,7 @@ package com.firstjob.jobapp.company;
 import com.firstjob.jobapp.job.Job;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -16,9 +17,17 @@ public class Company {
     private String description;
 
     @OneToMany
-    private List<Job> jobs;
+    private List<Job> jobs = new ArrayList<>();
 
-//    private List<Review> reviews;
+    public Company(Long id, String name, String description, List<Job> jobs) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.jobs = jobs;
+    }
+
+
+    //    private List<Review> reviews;
 
     public Company() {
     }
