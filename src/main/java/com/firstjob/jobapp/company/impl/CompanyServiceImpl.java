@@ -4,6 +4,7 @@ import com.firstjob.jobapp.company.Company;
 import com.firstjob.jobapp.company.CompanyRepository;
 import com.firstjob.jobapp.company.CompanyService;
 import com.firstjob.jobapp.job.Job;
+import com.firstjob.jobapp.review.Review;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,6 +40,7 @@ public class CompanyServiceImpl implements CompanyService {
         } else {
             return false;
         }
+<<<<<<< Updated upstream
     }
 
     @Override
@@ -61,5 +63,20 @@ public class CompanyServiceImpl implements CompanyService {
         Optional<Company> companyOptional = companyRepository.findById(id);
         Company company = companyOptional.get();
         return company;
+=======
+>>>>>>> Stashed changes
     }
+
+    @Override
+    public void createCompany(Company company) {
+        companyRepository.save(company);
+    }
+
+    @Override
+    public Company getCompanyById(Long companyId) {
+        Optional<Company> companyOptional = companyRepository.findById(companyId);
+        Company company = companyOptional.get();
+        return company;
+    }
+
 }

@@ -2,6 +2,7 @@ package com.firstjob.jobapp.company;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.firstjob.jobapp.job.Job;
+import com.firstjob.jobapp.review.Review;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -17,10 +18,18 @@ public class Company {
     private String name;
     private String description;
 
+<<<<<<< Updated upstream
 
     @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Job> jobs = new ArrayList<>();
+=======
+    @OneToMany
+    private List<Job> jobs = new ArrayList<>();
+
+    @OneToMany
+    private List<Review> reviews = new ArrayList<>();
+>>>>>>> Stashed changes
 
     public Company(Long id, String name, String description, List<Job> jobs) {
         this.id = id;

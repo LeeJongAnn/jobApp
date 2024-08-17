@@ -37,6 +37,7 @@ public class CompanyController {
         return new ResponseEntity<>("Company added Successfully", HttpStatus.OK);
     }
 
+<<<<<<< Updated upstream
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCompany(@PathVariable Long id) {
@@ -54,4 +55,6 @@ public class CompanyController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+=======
+>>>>>>> Stashed changes
 }
