@@ -4,6 +4,7 @@ import com.firstjob.jobapp.company.Company;
 import com.firstjob.jobapp.company.CompanyRepository;
 import com.firstjob.jobapp.company.CompanyService;
 import com.firstjob.jobapp.job.Job;
+import com.firstjob.jobapp.review.Review;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,7 +26,6 @@ public class CompanyServiceImpl implements CompanyService {
         return companyRepository.findAll();
     }
 
-
     @Override
     public boolean updateCompany(Company company, Long id) {
         Optional<Company> companyOptional = companyRepository.findById(id);
@@ -33,9 +33,50 @@ public class CompanyServiceImpl implements CompanyService {
         if (companyOptional.isPresent()) {
             Company companyToUpdate = companyOptional.get();
             companyToUpdate.setDescription(company.getDescription());
-            companyToUpdate.set
+            companyToUpdate.setName(company.getName());
+            companyToUpdate.setJobs(company.getJobs());
+            companyRepository.save(companyToUpdate);
             return true;
+        } else {
+            return false;
         }
-        return false;
+<<<<<<< Updated upstream
     }
+
+    @Override
+    public void createCompany(Company company) {
+        companyRepository.save(company);
+    }
+
+    @Override
+    public boolean deleteCompany(Long id) {
+        if (companyRepository.existsById(id)) {
+            companyRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public Company getCompanyById(Long id) {
+        Optional<Company> companyOptional = companyRepository.findById(id);
+        Company company = companyOptional.get();
+        return company;
+=======
+>>>>>>> Stashed changes
+    }
+
+    @Override
+    public void createCompany(Company company) {
+        companyRepository.save(company);
+    }
+
+    @Override
+    public Company getCompanyById(Long companyId) {
+        Optional<Company> companyOptional = companyRepository.findById(companyId);
+        Company company = companyOptional.get();
+        return company;
+    }
+
 }
