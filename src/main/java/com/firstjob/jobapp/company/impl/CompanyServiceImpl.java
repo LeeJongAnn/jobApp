@@ -40,7 +40,6 @@ public class CompanyServiceImpl implements CompanyService {
         } else {
             return false;
         }
-<<<<<<< Updated upstream
     }
 
     @Override
@@ -63,20 +62,7 @@ public class CompanyServiceImpl implements CompanyService {
         Optional<Company> companyOptional = companyRepository.findById(id);
         Company company = companyOptional.get();
         return company;
-=======
->>>>>>> Stashed changes
     }
 
-    @Override
-    public void createCompany(Company company) {
-        companyRepository.save(company);
-    }
-
-    @Override
-    public Company getCompanyById(Long companyId) {
-        Optional<Company> companyOptional = companyRepository.findById(companyId);
-        Company company = companyOptional.get();
-        return company;
-    }
 
 }

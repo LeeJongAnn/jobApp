@@ -30,4 +30,11 @@ public class ReviewServiceImpl implements ReviewService{
             reviewRepository.save(review);
         }
     }
+
+    @Override
+    public boolean updateReview(Long companyId, Long ReviewId) {
+        Company company = companyService.getCompanyById(companyId);
+        System.out.println(company);
+        return true;
+    }
 }
