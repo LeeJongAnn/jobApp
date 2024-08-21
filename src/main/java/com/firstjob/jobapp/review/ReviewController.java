@@ -33,4 +33,13 @@ public class ReviewController {
         reviewService.addReviews(companyId, review);
         return new ResponseEntity<>("Review added Successfully", HttpStatus.OK);
     }
+
+
+    @PutMapping
+    public ResponseEntity<String> updateReview(@PathVariable Long companyId, @PathVariable Long reviewId, @RequestBody Review review) {
+
+
+        return new ResponseEntity<>("Review updated Successfully", HttpStatus.OK);
+
+    }
 }

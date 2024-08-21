@@ -18,18 +18,12 @@ public class Company {
     private String name;
     private String description;
 
-<<<<<<< Updated upstream
 
     @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Job> jobs = new ArrayList<>();
-=======
-    @OneToMany
-    private List<Job> jobs = new ArrayList<>();
-
     @OneToMany
     private List<Review> reviews = new ArrayList<>();
->>>>>>> Stashed changes
 
     public Company(Long id, String name, String description, List<Job> jobs) {
         this.id = id;
