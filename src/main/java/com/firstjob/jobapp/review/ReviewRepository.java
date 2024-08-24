@@ -8,4 +8,5 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
 
     List<Review> findByCompanyId(Long companyId);
+
 }

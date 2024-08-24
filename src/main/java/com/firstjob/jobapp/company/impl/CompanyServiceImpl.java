@@ -15,7 +15,7 @@ import java.util.Optional;
 public class CompanyServiceImpl implements CompanyService {
 
 
-    private CompanyRepository companyRepository;
+    private final CompanyRepository companyRepository;
 
     public CompanyServiceImpl(CompanyRepository companyRepository) {
         this.companyRepository = companyRepository;
