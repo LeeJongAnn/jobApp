@@ -9,7 +9,7 @@ import java.util.Optional;
 
 
 @Service
-public class ReviewServiceImpl implements ReviewService{
+public class ReviewServiceImpl implements ReviewService {
 
     private final ReviewRepository reviewRepository;
 
@@ -23,7 +23,7 @@ public class ReviewServiceImpl implements ReviewService{
     @Override
     public List<Review> getAllReviews(Long companyId) {
 
-        List<Review>  reviews = reviewRepository.findByCompanyId(companyId);
+        List<Review> reviews = reviewRepository.findByCompanyId(companyId);
         return reviews;
 
     }
@@ -48,7 +48,7 @@ public class ReviewServiceImpl implements ReviewService{
     }
 
     @Override
-    public boolean updateReview(Long companyId,Long reviewId, Review updatedReview) {
+    public boolean updateReview(Long companyId, Long reviewId, Review updatedReview) {
         Company company = companyService.getCompanyById(companyId);
         if (companyService.getCompanyById(companyId) != null) {
             updatedReview.setCompany(companyService.getCompanyById(companyId));
@@ -71,7 +71,7 @@ public class ReviewServiceImpl implements ReviewService{
 
             companyService.updateCompany(company, companyId);
             reviewRepository.deleteById(reviewId);
-
+            return true;
         } else {
             return false;
         }
